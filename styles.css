@@ -104,7 +104,7 @@ p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-5);
 }
-@media screen and (min_width: 876) {
+@media screen and (min-width: 876px) {
   h1 {
     font-size: 4rem;
   }
@@ -193,20 +193,33 @@ input::placeholder {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999;
   background: var(--clr-grey-10);
   display: grid;
   justify-content: center;
+  padding-top: 5rem;
+  z-index: 999;
 }
 .hide-loading {
   display: none;
+}
+.title {
+  font-size: 2rem;
+  text-align: center;
 }
 /* cocktails */
 .cocktails {
   position: relative;
 }
 .cocktail {
+  transition: var(--transition);
   position: relative;
+}
+.cocktail:hover {
+  box-shadow: var(--dark-shadow);
+  transform: scale(1.005);
+}
+.cocktail:hover img {
+  filter: blur(2px) grayscale(50%);
 }
 .cocktail img {
   width: 100%;
@@ -228,4 +241,42 @@ input::placeholder {
   margin-bottom: 0;
   font-family: monospace;
   font-size: 2rem;
+}
+/* single drinks */
+.single-drink {
+  width: 85vw;
+  max-width: var(--max-width);
+  margin: 4rem auto 2rem auto;
+}
+@media screen and (min-width: 992px) {
+  .single-drink {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+  }
+}
+.drink-img {
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+  display: block;
+  border: 10px solid var(--clr-white);
+  border-radius: var(--radius);
+}
+.ingredients-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 5rem;
+}
+.drink-info {
+  margin-top: 2rem;
+}
+.drink-ingredients i,
+.drink-measure i {
+  margin-right: 1rem;
+}
+.drink-info .btn {
+  display: inline-block;
+  margin-top: 2rem;
 }
